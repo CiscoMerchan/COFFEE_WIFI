@@ -1,0 +1,22 @@
+Make a table with Bootstrap:
+https://getbootstrap.com/docs/4.5/content/tables/
+https://www.w3schools.com/tags/tag_th.asp
+
+NOTES:
+Styles:
+ Add in flask_bootstrap the css/styles.css-
+ {% extends 'bootstrap/base.html' %} ** first line connecting bootstrap the html file**
+{% block styles %}  ** second line (to active in the template.html the css files the name of the block must be "{% block styles %} "
+{{ super()}} ** this to inherit **
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}"> ** link the to file css **
+{% endblock %} ** close the block **
+
+
+___________________
+
+README.md
+For the display of the coffee list I did header with the titles that are found in the csv file.
+CHALLENGE: the csv file when is open into html must be the "encoding='utf-8'" integrated in
+"with open('cafe-data.csv', newline='', encoding='utf-8') as csv_file:"
+otherwise it won't be displayed because :
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 123: character maps to <undefined>
